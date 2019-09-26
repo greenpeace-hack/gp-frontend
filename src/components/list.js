@@ -4,8 +4,14 @@ import { List, Card } from 'antd';
 import { Link } from 'react-router-dom'
 import { events } from "../services/events-service";
 
-export default class ListComponent extends Component {
+import { PropTypes } from 'prop-types';
+import { PageHeader } from 'antd';
 
+
+class ListComponent extends Component {
+    constructor(props) {
+        super(props)
+    }
 
 
     render() {
@@ -14,13 +20,13 @@ export default class ListComponent extends Component {
             <div>
 
                 <List
-                    header={<div><h1>Events</h1></div>}
+                    header={<PageHeader onBack={() => { this.props.goBack() }} title={this.props.title} subTitle={this.props.subTitle} />}
                     footer={<div>Footer</div>}
                     bordered
-                    dataSource={events}
+                    dataSource={data}
                     renderItem={item => (
                         <List.Item>
-                            <Card title={item.title} extra={<a href="#">More</a>} style={{ width: 300 }}>
+                            <Card size="large" title={item.title} extra={<a href="#">More</a>} style={{ width: 500 }}>
                                 <h4>Description</h4>
                                 {item.description}
                                 <h4>Start Date</h4>
@@ -36,3 +42,12 @@ export default class ListComponent extends Component {
 
     }
 }
+
+ListComponent.propTypes = {
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    goBack: PropTypes.func.isRequired
+};
+
+export default ListComponent;
