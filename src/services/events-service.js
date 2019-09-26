@@ -1,4 +1,43 @@
+import { get } from '../services/api-service'
 
+export const supporters = [
+  {
+    id: '1232',
+    firstName: 'Bob',
+    lastName: 'Murphy',
+    email: 'bm@example.com'
+  },
+  {
+    id: '154',
+    firstName: 'Bob',
+    lastName: 'Murphy',
+    email: 'bm@example.com'
+  },
+  {
+    id: '764',
+    firstName: 'Bob',
+    lastName: 'Murphy',
+    email: 'bm@example.com'
+  },
+  {
+    id: '9776',
+    firstName: 'Bob',
+    lastName: 'Murphy',
+    email: 'bm@example.com'
+  },
+  {
+    id: '134566',
+    firstName: 'Bob',
+    lastName: 'Murphy',
+    email: 'bm@example.com'
+  },
+  {
+    id: '3457',
+    firstName: 'Bob',
+    lastName: 'Murphy',
+    email: 'bm@example.com'
+  },
+]
 
 export const events = [
   {
@@ -47,9 +86,17 @@ export const events = [
   }
 ]
 
+// export const listSupporters = () new Promise((resolve, ))
+
 
 export const listEvents = () => new Promise((resolve, reject) => (
   resolve(events)
+
+  // get('/events').then((events) => {
+  // resolve(events)
+  // }).catch(() => {
+  // reject([])
+  // })
 ));
 
 export const getEvent = (id) => new Promise((resolve, reject) => (

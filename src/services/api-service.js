@@ -2,8 +2,10 @@ import * as axios from 'axios';
 
 const host = "http://localhost:3000";
 
+// const host = "http://backend-p4-demo.apps.8fe2.events.opentlc.com";
+
 const instance = axios.create({
-  timeout: 30000,
+  timeout: 60000,
 });
 
 /**

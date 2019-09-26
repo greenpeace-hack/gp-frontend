@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
-import { List, Card, Row, Col } from 'antd';
+import { List, Card } from 'antd';
 import { Link } from 'react-router-dom'
 import { events } from "../services/events-service";
 
-export default class ListComponent extends Component {
+import { PropTypes } from 'prop-types';
+import { PageHeader } from 'antd';
+
+
+class ListComponent extends Component {
+  constructor(props) {
+    super(props)
+  }
+
 
   render() {
     return (
@@ -12,21 +20,19 @@ export default class ListComponent extends Component {
       <div>
 
         <List
-          header={<div><h1>Events</h1></div>}
+          header={<PageHeader onBack={() => { this.props.goBack() }} title={this.props.title} subTitle={this.props.subTitle} />}
           footer={<div>Footer</div>}
           bordered
-          dataSource={events}
+          dataSource={this.props.data}
           renderItem={item => (
             <List.Item>
               <Card type="inner" title={item.title} extra={<Link to={{ pathname: "/event/" + item.id, state: item }}>More</Link>} style={{ width: 300 }}>
-              t
                 <h4>Description</h4>
                 {item.description}
-
-                <Row>
-                  <Col span={6}><b>Start Date: </b>{item.startDate}</Col>
-                  <Col span={6}><b>End Date: </b>{item.endDate}</Col>
-                </Row>
+                <h4>Start Date</h4>
+                {item.startDate}
+                <h4>End Date</h4>
+                {item.endDate}
               </Card>
             </List.Item>
           )}
@@ -36,3 +42,12 @@ export default class ListComponent extends Component {
 
   }
 }
+
+ListComponent.propTypes = {
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  goBack: PropTypes.func.isRequired
+};
+
+export default ListComponent;
