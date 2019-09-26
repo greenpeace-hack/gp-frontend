@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployment to OpenShift
+
+```
+oc new-project p4-dev
+oc apply -f .openshift/manifests/ -n p4-dev
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

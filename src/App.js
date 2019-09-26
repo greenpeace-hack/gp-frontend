@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from './components/Page';
 
-import { Layout, Button } from 'antd'
+import { Button, Skeleton } from 'antd'
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EventsView from './views/events'
@@ -9,22 +9,18 @@ import EventDetailView from './views/events'
 
 // const { Content } = Layout;
 
-
-
 function Index(props) {
   return <Page>
-    <Button type="primary"><Link to="/events/">List of Events</Link></Button>
+    <Skeleton avatar paragraph={{ rows: 7 }} />
+    <Button block type="primary"><Link to="/events/">Take Action!!!</Link></Button>
+    <Skeleton avatar paragraph={{ rows: 7 }} />
   </Page>
 }
-
-
 
 function App() {
   return (
     <Router>
-      <Page>
-        <Button type="primary"><Link to="/events/">Take Action!!!</Link></Button>
-      </Page>
+
 
       <Route path="/" exact component={Index} />
       <Route path="/events/" component={EventsView} />

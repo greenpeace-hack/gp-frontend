@@ -1,35 +1,32 @@
 import React, { Component } from "react";
-import {List, Typography} from "antd";
+
 import "antd/dist/antd.css";
+import { List, Card } from 'antd';
+import { Redirect, Link } from 'react-router-dom'
 
-const itemDetails = {
-    title: 'testTitle',
-    desc: 'Nice description'
-};
 
-const header = {
-    title: 'name'
-    
-}
+export default class ListComponent extends Component {
 
-export default class List extends Component {
-    render() {
+  render() {
+    return (
 
-    <div>
-    <h3 style={{ marginBottom: 16 }}>Default Size</h3>
-    <List
-      header={<div>{header}</div>}
-      footer={<div>Footer</div>}
-      bordered
-      dataSource={data}
-      renderItem={item => (
-        <List.Item>
-          <Typography.Text mark>[ITEM]</Typography.Text> {itemDetails}
-        </List.Item>
-        
-      )}
-    />
-    </div>
+      <div>
 
-    }
+        <List
+          header={<div><h1>Events</h1></div>}
+          footer={<div>Footer</div>}
+          bordered
+          dataSource={'data'}
+          renderItem={item => (
+            <List.Item>
+              <Card title="Default size card" extra={<Link to="/event/">More</Link>} style={{ width: 300 }}>
+                {item}
+              </Card>
+            </List.Item>
+          )}
+        />
+      </div>
+    );
+
+  }
 }
