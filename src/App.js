@@ -5,7 +5,7 @@ import { Button, Skeleton } from 'antd'
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EventsView from './views/events'
-import EventDetailView from './views/events'
+import EventDetailView from './views/eventDetail'
 
 // const { Content } = Layout;
 
