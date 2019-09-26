@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 
 import Page from '../components/Page';
-import { Button } from 'antd';
 
-class EventsView extends Component {
+class EventDetailView extends Component {
   componentDidMount() {
   }
 
   render = () => (
     <Page>
-      <h1>Events</h1>
-      <Button>Go to event -></Button>
+      <h1>Event Title Here</h1>
+      <p>Content here...</p>
     </Page>
   );
 }
 
-export default EventsView;
-
+export default EventDetailView;
