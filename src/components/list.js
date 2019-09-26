@@ -1,38 +1,37 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
-import { List, Card } from 'antd';
-import { Link } from 'react-router-dom';
+import { List, Card, Row, Col } from 'antd';
+import { Link } from 'react-router-dom'
 import { events } from "../services/events-service";
 
 export default class ListComponent extends Component {
 
+  render() {
+    return (
 
+      <div>
 
-    render() {
-        return (
+        <List
+          header={<div><h1>Events</h1></div>}
+          footer={<div>Footer</div>}
+          bordered
+          dataSource={events}
+          renderItem={item => (
+            <List.Item>
+              <Card type="inner" title={item.title} extra={<Link to="/event/">More</Link>} style={{ width: 300 }}>
+                <h4>Description</h4>
+                {item.description}
 
-            <div>
+                <Row>
+                  <Col span={6}><b>Start Date: </b>{item.startDate}</Col>
+                  <Col span={6}><b>End Date: </b>{item.endDate}</Col>
+                </Row>
+              </Card>
+            </List.Item>
+          )}
+        />
+      </div>
+    );
 
-                <List
-                    header={<div><h1>Events</h1></div>}
-                    footer={<div>Footer</div>}
-                    bordered
-                    dataSource={events}
-                    renderItem={item => (
-                        <List.Item>
-                            <Card title={item.title} extra={<Link to="/event/">More</Link>} style={{ width: 300 }}>
-                                <h4>Description</h4>
-                                {item.description}
-                                <h4>Start Date</h4>
-                                {item.startDate}
-                                <h4>End Date</h4>
-                                {item.endDate}
-                            </Card>
-                        </List.Item>
-                    )}
-                />
-            </div>
-        );
-
-    }
+  }
 }

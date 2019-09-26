@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Page from '../components/Page';
 import { Button } from 'antd';
-import Map from '../views/mapView';
 import { Link } from 'react-router-dom'
 
 class EventDetailView extends Component {
