@@ -6,6 +6,8 @@ class EventsView extends Component {
   componentDidMount() {
   }
 
+
+
   render = () => (
     <Page>
       <h1>Events</h1>
