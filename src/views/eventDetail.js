@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import ListItems from '../components/list'
+
 import Page from '../components/Page';
 
-class EventsView extends Component {
+class EventDetailView extends Component {
   componentDidMount() {
   }
 
-
-
   render = () => (
     <Page>
-      <h1>Events</h1>
-      <ListItems />
+      <h1>Event Title Here</h1>
+      <p>Content here...</p>
     </Page>
   );
 }
 
-export default EventsView;
-
+export default EventDetailView;

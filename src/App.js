@@ -5,6 +5,7 @@ import { Button, Skeleton } from 'antd'
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EventsView from './views/events'
+import EventDetailView from './views/eventDetail'
 
 // const { Content } = Layout;
 
@@ -23,6 +24,7 @@ function App() {
 
       <Route path="/" exact component={Index} />
       <Route path="/events/" component={EventsView} />
+      <Route path="/event/" component={EventDetailView} />
       {/* <Route path="/petitions-detail/" component={Users} /> */}
     </Router>
   );

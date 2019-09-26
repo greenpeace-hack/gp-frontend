@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "antd/dist/antd.css";
 import { List, Card } from 'antd';
+import { Link } from 'react-router-dom'
 import { events } from "../services/events-service";
 
 
