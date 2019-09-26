@@ -1,0 +1,78 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  labels:
+    app: ui
+  name: ui
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    name: ui
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        name: ui
+      name: ui
+    spec:
+      containers:
+      - image: docker-registry.default.svc:5000/p4-dev/ui@sha256:c45c585a1d108cd69bb46d30d94e092a1ae54fc01f3db33fda6d43841751d2dc
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 3
+        name: nginx-example
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 3
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 3
+        resources:
+          limits:
+            memory: 512Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - nginx-example
+      from:
+        kind: ImageStreamTag
+        name: ui:latest
+        namespace: p4-dev
+      lastTriggeredImage: docker-registry.default.svc:5000/p4-dev/ui@sha256:c45c585a1d108cd69bb46d30d94e092a1ae54fc01f3db33fda6d43841751d2dc
+    type: ImageChange
+  - type: ConfigChange

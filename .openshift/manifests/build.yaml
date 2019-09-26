@@ -1,0 +1,39 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: ui
+  name: ui
+spec:
+  failedBuildsHistoryLimit: 5
+  output:
+    to:
+      kind: ImageStreamTag
+      name: ui:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: public
+    git:
+      uri: https://github.com/greenpeace-hack/gp-frontend.git
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: nginx:1.12
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - imageChange:
+      lastTriggeredImageID: docker-registry.default.svc:5000/openshift/nginx@sha256:eea95bf075d10e4d7cb5877e84005e4063a7a14a567bda2f2d1ffc135309315a
+    type: ImageChange
+  - type: ConfigChange
+  - github:
+      secret: h1dRQp7OJxlnuMQEV8FCkpG8D5r3rKhTfjijtUo3
+    type: GitHub
+  - generic:
+      secret: aQPsAKL8DN0BKPP48AJQehHB0f5O1WVnlveYNi8Q
+    type: Generic
