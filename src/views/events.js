@@ -6,11 +6,8 @@ class EventsView extends Component {
   componentDidMount() {
   }
 
-
-
   render = () => (
     <Page>
-      
       <ListItems />
     </Page>
   );
