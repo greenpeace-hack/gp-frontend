@@ -10,7 +10,7 @@ class EventsView extends Component {
 
   render = () => (
     <Page>
-      <ListItems title="Events" subTitle="Help us take Action!!!" data={events} />
+      <ListItems title="Events" subTitle="Help us take Action!!!" data={events} goBack={window.history.back()} />
     </Page>
   );
 }
