@@ -61,3 +61,4 @@ export const getEvent = (id) => new Promise((resolve, reject) => (
     }
   })
 ));
+
