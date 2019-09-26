@@ -14,7 +14,7 @@ spec:
   resources: {}
   runPolicy: Serial
   source:
-    contextDir: public
+    contextDir: build
     git:
       uri: https://github.com/greenpeace-hack/gp-frontend.git
     type: Git

@@ -4,30 +4,35 @@ import { List, Card } from 'antd';
 import { Link } from 'react-router-dom'
 import { events } from "../services/events-service";
 
-
 export default class ListComponent extends Component {
-    
 
-  render() {
-    return (
 
-      <div>
 
-        <List
-          header={<div><h1>Events</h1></div>}
-          footer={<div>Footer</div>}
-          bordered
-          dataSource={events}
-          renderItem={item => (
-            <List.Item>
-              <Card title="Default size card" extra={<Link to="/event/">More</Link>} style={{ width: 300 }}>
-                {item.title}
-              </Card>
-            </List.Item>
-          )}
-        />
-      </div>
-    );
+    render() {
+        return (
 
-  }
+            <div>
+
+                <List
+                    header={<div><h1>Events</h1></div>}
+                    footer={<div>Footer</div>}
+                    bordered
+                    dataSource={events}
+                    renderItem={item => (
+                        <List.Item>
+                            <Card title={item.title} extra={<a href="#">More</a>} style={{ width: 300 }}>
+                                <h4>Description</h4>
+                                {item.description}
+                                <h4>Start Date</h4>
+                                {item.startDate}
+                                <h4>End Date</h4>
+                                {item.endDate}
+                            </Card>
+                        </List.Item>
+                    )}
+                />
+            </div>
+        );
+
+    }
 }
