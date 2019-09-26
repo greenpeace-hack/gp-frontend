@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "antd/dist/antd.css";
-import { List, Typography } from 'antd';
+import { List, Card } from 'antd';
 
 
 export default class ListComponent extends Component {
@@ -11,13 +11,15 @@ export default class ListComponent extends Component {
       <div>
 
         <List
-          header={<div>Header</div>}
+          header={<div><h1>Events</h1></div>}
           footer={<div>Footer</div>}
           bordered
           dataSource={data}
           renderItem={item => (
             <List.Item>
-              {item}
+              <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
+                {item}
+              </Card>
             </List.Item>
           )}
         />
