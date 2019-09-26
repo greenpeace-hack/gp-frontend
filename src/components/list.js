@@ -18,7 +18,7 @@ export default class ListComponent extends Component {
             <div>
             
             <List
-              header={<div>Header</div>}
+              header={<div><h1>Events</h1></div>}
               footer={<div>Footer</div>}
               bordered
               dataSource={data}

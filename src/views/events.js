@@ -8,7 +8,7 @@ class EventsView extends Component {
 
   render = () => (
     <Page>
-      <h1>Events</h1>
+      
       <ListItems />
     </Page>
   );
