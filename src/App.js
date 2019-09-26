@@ -25,7 +25,7 @@ function App() {
 
       <Route path="/" exact component={Index} />
       <Route path="/events/" component={EventsView} />
-      <Route path="/event/" component={EventDetailView} />
+      <Route path="/event/:id" component={EventDetailView} />
       <Route path="/map/" component={MapView} />
       {/* <Route path="/petitions-detail/" component={Users} /> */}
     </Router>

@@ -18,7 +18,8 @@ export default class ListComponent extends Component {
           dataSource={events}
           renderItem={item => (
             <List.Item>
-              <Card type="inner" title={item.title} extra={<Link to="/event/">More</Link>} style={{ width: 300 }}>
+              <Card type="inner" title={item.title} extra={<Link to={{ pathname: "/event/" + item.id, state: item }}>More</Link>} style={{ width: 300 }}>
+              t
                 <h4>Description</h4>
                 {item.description}
 
