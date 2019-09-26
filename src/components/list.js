@@ -23,17 +23,17 @@ export default class ListComponent extends Component {
               <Card type="inner" title={item.title} extra={<a href="#">More</a>} style={{ width: 300 }}>
                 <h4>Description</h4>
                 {item.description}
-               
+
                 <Row>
                   <Col span={6}><b>Start Date: </b>{item.startDate}</Col>
                   <Col span={6}><b>End Date: </b>{item.endDate}</Col>
-                  </Row>
-                            </Card>
-                        </List.Item>
-                )}
-            />
-            </div>
-              );
-      
-          }
+                </Row>
+              </Card>
+            </List.Item>
+          )}
+        />
+      </div>
+    );
+
+  }
 }
