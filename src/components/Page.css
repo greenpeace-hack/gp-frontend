@@ -1,0 +1,4 @@
+.ant-layout-content {
+  max-height: 100vh;
+  overflow: auto;
+}

@@ -1,28 +1,34 @@
 import React from 'react';
-import Page from 'antd';
-import logo from './logo.svg';
-import './App.css';
+import Page from './components/Page';
+
+import { Layout, Button } from 'antd'
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import EventsView from './views/events'
+
+// const { Content } = Layout;
+
+
+
+function Index(props) {
+  return <Page>
+    <Button type="primary"><Link to="/events/">List of Events</Link></Button>
+  </Page>
+}
+
+
 
 function App() {
   return (
-    <Page>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        </header>
-      </div>
-    </Page>
+    <Router>
+      <Page>
+        <Button type="primary"><Link to="/events/">Take Action!!!</Link></Button>
+      </Page>
+
+      <Route path="/" exact component={Index} />
+      <Route path="/events/" component={EventsView} />
+      {/* <Route path="/petitions-detail/" component={Users} /> */}
+    </Router>
   );
 }
 
