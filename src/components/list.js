@@ -25,7 +25,7 @@ class ListComponent extends Component {
           dataSource={this.props.data}
           renderItem={item => (
             <List.Item>
-              <Card size="large" title={item.title} extra={<Link to={"/event/" + item.id}>More</Link>} style={{ width: 500 }}>
+              <Card type="inner" title={item.title} extra={<Link to={{ pathname: "/event/" + item.id, state: item }}>More</Link>} style={{ width: 300 }}>
                 <h4>Description</h4>
                 {item.description}
                 <h4>Start Date</h4>

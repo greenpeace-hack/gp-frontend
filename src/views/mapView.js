@@ -7,7 +7,9 @@ class MapView extends Component {
   constructor(props) {
     super(props);
     this.API_KEY = 'AIzaSyC6tQ5hqYrwbuiLDK_Ow3IRwiVFdE72nME';
-    this.location = { lat: -34.397, lng: 150.644 };
+    console.log('props', props);
+    // this.location = { lat: -34.397, lng: 150.644 };
+    this.location = props.location.state;
   }
 
   componentDidMount() {
