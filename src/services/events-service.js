@@ -39,7 +39,7 @@ export const supporters = [
   },
 ]
 
-export const events = [
+let events = [
   {
     id: "1",
     description: "Some desc",
@@ -92,10 +92,11 @@ export const events = [
 export const listEvents = () => new Promise((resolve, reject) => (
   resolve(events)
 
-  // get('/events').then((events) => {
-  // resolve(events)
+  // get('/events').then((data) => {
+  //   // events = data;
+  //   resolve(data)
   // }).catch(() => {
-  // reject([])
+  //   reject([])
   // })
 ));
 

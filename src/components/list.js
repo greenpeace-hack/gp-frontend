@@ -13,14 +13,13 @@ class ListComponent extends Component {
     super(props)
   }
 
-
   render() {
     return (
 
       <div>
 
         <List
-          header={<PageHeader onBack={() => { this.props.goBack() }} title={this.props.title} subTitle={this.props.subTitle} />}
+          header={<PageHeader onBack={() => null} title={this.props.title} subTitle={this.props.subTitle} />}
           footer={<div>Footer</div>}
           bordered
           dataSource={this.props.data}
@@ -47,7 +46,7 @@ ListComponent.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  goBack: PropTypes.func.isRequired
+  goBack: PropTypes.func
 };
 
 export default ListComponent;
