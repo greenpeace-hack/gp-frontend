@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ListItems from '../components/list'
 import Page from '../components/Page';
 
 class EventsView extends Component {
@@ -11,6 +11,7 @@ class EventsView extends Component {
   render = () => (
     <Page>
       <h1>Events</h1>
+      <ListItems />
     </Page>
   );
 }

@@ -1,35 +1,35 @@
 import React, { Component } from "react";
-import {List, Typography} from "antd";
+
 import "antd/dist/antd.css";
+import { List, Typography } from 'antd';
 
-const itemDetails = {
-    title: 'testTitle',
-    desc: 'Nice description'
-};
+const data = [
+  'Test1',
+  'Test2',
+  'Test3',
+  'Test4',
+  'Test5',
+];
 
-const header = {
-    title: 'name'
-    
-}
-
-export default class List extends Component {
+export default class ListComponent extends Component {
     render() {
-
-    <div>
-    <h3 style={{ marginBottom: 16 }}>Default Size</h3>
-    <List
-      header={<div>{header}</div>}
-      footer={<div>Footer</div>}
-      bordered
-      dataSource={data}
-      renderItem={item => (
-        <List.Item>
-          <Typography.Text mark>[ITEM]</Typography.Text> {itemDetails}
-        </List.Item>
+        return (
+            
+            <div>
+            
+            <List
+              header={<div>Header</div>}
+              footer={<div>Footer</div>}
+              bordered
+              dataSource={data}
+              renderItem={item => (
+                <List.Item>
+                  {item}
+                </List.Item>
+              )}
+            />
+            </div>
+            );
         
-      )}
-    />
-    </div>
-
     }
 }
