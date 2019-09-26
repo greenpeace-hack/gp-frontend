@@ -26,6 +26,7 @@ export default class List extends Component {
         <List.Item>
           <Typography.Text mark>[ITEM]</Typography.Text> {itemDetails}
         </List.Item>
+        
       )}
     />
     </div>
